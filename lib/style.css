@@ -139,24 +139,33 @@ body {
   margin-top: 5px;
 }
 
-.toolpanel .content .hide-show-handler {
+.toolpanel .hide-show-handler {
   position: absolute;
   top: calc(50% - 40px);
-  right: -42px;
+  left: -40px;
   width: 40px;
   height: 80px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   cursor: pointer;
 
-  background-image: url("/lib/caret-left.svg");
+  background-color: var(--bs-body-bg);
   background-size: 10px;
   background-repeat: no-repeat;
   background-position: center center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.toolpanel.closed .content .hide-show-handler {
-  background-image: url("/lib/caret-right.svg");
+.toolpanel .hide-show-handler > svg {
+  height: 0.8rem;
+}
+
+.toolpanel.closed .hide-show-handler > svg {
+  -webkit-transform: rotate(180deg) !important;
+  transform: rotate(180deg) !important;
 }
 
 .spectrum.with-add-on {
