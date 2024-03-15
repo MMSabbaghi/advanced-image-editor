@@ -13,8 +13,9 @@ try {
     "undo",
     "redo",
     "save",
-    // "download",
+    "download",
     "clear",
+    "themeSwitch",
   ];
 
   // define custom shapes
