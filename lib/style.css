@@ -59,7 +59,7 @@ body {
 }
 
 .floating-zoom-level-container {
-  position: absolute;
+  position: fixed;
   z-index: 10000;
   padding: 10px 20px;
   bottom: 0;
