@@ -1,0 +1,387 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.grp-handler-cp-c {
+  margin-left: -20px;
+}
+
+.default-container {
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 0;
+}
+
+[data-bs-theme="dark"] .toolbar {
+  background-color: var(--bs-body-bg);
+}
+
+[data-bs-theme="dark"] * > svg {
+  filter: invert(100);
+}
+
+.toolbar button {
+  background-color: transparent;
+  width: 64px;
+  height: 54px;
+  opacity: 0.55;
+  clear: both;
+  border: 0;
+  border-radius: unset;
+  outline: none;
+}
+
+.toolbar button.active,
+.toolbar button:hover {
+  opacity: 1;
+}
+
+.toolbar button img,
+.toolbar button svg {
+  width: 22px;
+  height: 22px;
+}
+
+.main-panel {
+  height: calc(100% - 54px);
+  display: flex;
+  position: relative;
+}
+
+.floating-zoom-level-container {
+  position: absolute;
+  z-index: 10000;
+  padding: 10px 20px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bs-tertiary-bg);
+}
+
+.canvas-holder {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaeaea;
+}
+
+.canvas-container {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHUlEQVQ4jWNgYGAQIYAJglEDhoUBg9+FowbQ2gAARjwKARjtnN8AAAAASUVORK5CYII=");
+  background-size: 30px 30px;
+  border: 1px solid #ccc;
+  margin: auto;
+}
+
+.toolpanel {
+  background-color: var(--bs-body-bg);
+  width: 300px;
+  top: 0;
+  right: 0;
+  height: 100%;
+  transition: all 0.4s;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 13px;
+  display: none;
+  position: absolute;
+  z-index: 9999;
+}
+
+.toolpanel.closed {
+  right: -300px;
+}
+
+.toolpanel.visible {
+  display: initial;
+}
+
+.toolpanel .content {
+  padding: 20px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: -webkit-fill-available;
+  height: -ms-fill-available;
+  height: fill-available;
+  height: -moz-fill-available;
+}
+
+.toolpanel .title {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 10px;
+  width: 100%;
+  border-bottom: 1px solid;
+  text-transform: uppercase;
+}
+
+.toolpanel .content h4 {
+  font-size: 0.9rem;
+  text-align: center;
+  background-color: var(--bs-tertiary-bg);
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.toolpanel .content .hide-show-handler {
+  position: absolute;
+  top: calc(50% - 40px);
+  right: -42px;
+  width: 40px;
+  height: 80px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  cursor: pointer;
+
+  background-image: url("/lib/caret-left.svg");
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.toolpanel.closed .content .hide-show-handler {
+  background-image: url("/lib/caret-right.svg");
+}
+
+.spectrum.with-add-on {
+  width: 40px;
+}
+
+#shapes-panel .button {
+  cursor: pointer;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin: 9px;
+}
+
+#background-panel .canvas-size-setting input {
+  width: 60px;
+  border-radius: 6px;
+  padding: 4px 10px;
+  line-height: 18px;
+  font-size: 13px;
+}
+
+#select-panel .text-section .style,
+.alignment-section .btns,
+.object-options .btns {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#select-panel .text-section .style button,
+#select-panel .alignment-section button,
+#select-panel .object-options button {
+  background-color: var(--bs-body-bg);
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  outline: none;
+}
+
+#select-panel button svg {
+  opacity: 0.7;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+#select-panel .text-section .style,
+#select-panel .text-section .family,
+#select-panel .text-section .sizes,
+#select-panel .text-section .align,
+#select-panel .text-section .color {
+  margin-bottom: 20px;
+}
+
+#select-panel .text-section .sizes input {
+  width: 50px;
+}
+
+.toolpanel#select-panel .text-section,
+.toolpanel#select-panel .effect-section {
+  display: none;
+}
+
+.toolpanel#select-panel.type-group .border-section {
+  display: none;
+}
+
+.toolpanel#select-panel.type-group .fill-section {
+  display: none;
+}
+
+.toolpanel#select-panel.type-textbox .text-section {
+  display: block;
+}
+
+.toolpanel#select-panel.type-textbox .fill-section {
+  display: none;
+}
+
+.toolpanel#select-panel.type-image .effect-section {
+  display: block;
+}
+
+.toolpanel#select-panel.type-image .fill-section {
+  display: none;
+}
+
+.custom-modal-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #3333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-modal-content {
+  background: var(--bs-body-bg);
+  width: max-content;
+  padding: 20px;
+}
+
+.custom-modal-content .button-download {
+  padding: 10px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.custom-modal-content .button-download:hover {
+  background: #ccc;
+  transition: 0.3s;
+}
+
+.toolpanel .input-container {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.toolpanel .input-container label {
+  width: 50%;
+}
+
+.toolpanel .input-container select {
+  width: 50%;
+  height: 29px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.toolpanel .input-container .sp-replacer {
+  width: 50%;
+}
+
+.toolpanel .input-container .custom-number-input {
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  height: 30px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.toolpanel .input-container .custom-number-input button {
+  width: 36px !important;
+  height: 30px !important;
+  background-clip: padding-box;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.toolpanel .input-container .custom-number-input input {
+  height: 30px !important;
+  width: 60px !important;
+  background: transparent !important;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.toolpanel
+  .input-container
+  .custom-number-input
+  input::-webkit-outer-spin-button,
+.toolpanel
+  .input-container
+  .custom-number-input
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.toolpanel .input-container .custom-number-input input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.tab-container .tabs {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab-container .tabs .tab-label {
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.tab-container .tabs .tab-label.active {
+  opacity: 1;
+}
+
+.gradient-orientation-container {
+  padding-top: 40px;
+}
+
+.drag-drop-input {
+  background-color: var(--bs-body-bg);
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 6px;
+  text-align: center;
+  padding: 120px;
+}
+
+.drag-drop-input.dragging {
+  border-color: #4368a9;
+}
+
+#tip-container {
+  padding: 10px;
+  text-align: center;
+  touch-action: none;
+  cursor: default;
+}
