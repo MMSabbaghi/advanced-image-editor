@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ویرایشگر</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="./vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="./lib/style.css" />
-    <script src="jquery-3.7.1.min.js"></script>
+    <script src="./vendor/jquery-3.7.1.min.js"></script>
     <script>
       jQuery.fn.outerHTML = function () {
         return jQuery("<div />").append(this.eq(0).clone()).html();
@@ -17,10 +17,10 @@
         return this.toString().split(".")[1].length || 0;
       };
     </script>
-    <script src="fabric.min.js"></script>
+    <script src="./vendor/fabric.min.js"></script>
 
-    <script src="spectrum.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="spectrum.min.css" />
+    <script src="./vendor/spectrum.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./vendor/spectrum.min.js" />
 
     <script src="./vendor/grapick.min.js"></script>
     <link rel="stylesheet" href="./vendor/grapick.min.css" />
